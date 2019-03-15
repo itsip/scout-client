@@ -11,7 +11,7 @@ class App extends Component {
     render() {
         return (
             <div id="app">
-                <nav className="navbar navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                     <a className="navbar-brand" href="/">Sc<FontAwesomeIcon icon="baseball-ball" size="xs"/>ut</a>
                 </nav>
                 <Players />

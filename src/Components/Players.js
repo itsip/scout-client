@@ -75,6 +75,12 @@ class Players extends Component {
             Header: 'Name',
             accessor: 'name',
             width: getColumnWidth(this.state.players, 'name', 'Name'),
+            filterMethod: (filter, row) => row[filter.id].toLowerCase().includes(filter.value.toLowerCase())
+        }, {
+            Header: 'Position',
+            accessor: 'position',
+            width: getColumnWidth(this.state.players, 'position', 'Position'),
+            filterMethod: (filter, row) => row[filter.id].includes(filter.value.toUpperCase())
         }, {
             Header: 'Overall',
             accessor: 'overall',
