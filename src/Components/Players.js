@@ -46,7 +46,7 @@ class Players extends Component {
           width: '100%',
           height: '100%',
           backgroundColor: '#dadada',
-          borderRadius: '2px'
+          borderRadius: '2px',
         }}
       >
         <div
@@ -64,7 +64,7 @@ class Players extends Component {
             borderRadius: '2px',
             transition: 'all .2s ease-out',
             textAlign: 'center',
-            color: '#ffffff'
+            color: '#ffffff',
           }}
         >
           {row.value}
