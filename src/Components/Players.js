@@ -89,7 +89,7 @@ class Players extends Component {
       Cell: cell,
     }];
 
-    for (let i = 2018; i > 1998; i -= 1) {
+    for (let i = 2019; i > 1998; i -= 1) {
       columns.push({
         Header: i.toString(),
         accessor: `years.${i.toString()}.score`,
