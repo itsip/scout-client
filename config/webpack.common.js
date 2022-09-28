@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -8,6 +7,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
@@ -16,7 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         loader: 'babel-loader',
         options: { presets: ['@babel/env'] },
       },
@@ -36,18 +36,14 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif|svg)$/,
-        use: [
-          'file-loader',
-        ],
+        test: /\.(png|svg|jpg|gif|svg|ttf|woff(2)?|eot)$/,
+        type: 'asset/resource',
       },
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 };
