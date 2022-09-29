@@ -42,33 +42,33 @@ class Players extends Component {
 
     const cell = row => (
       <div
-        style={{
-          width: '100%',
+      style={{
+        width: '100%',
           height: '100%',
           backgroundColor: '#dadada',
           borderRadius: '2px',
-        }}
+      }}
       >
-        <div
-          style={{
-            width: `${row.value}%`,
-            height: '100%',
-            backgroundColor:
-            !row.value
-              ? '#dadada'
-              : row.value > 66
-                ? '#85cc00'
-                : row.value > 33
-                  ? '#ffbf00'
-                  : '#ff2e00',
-            borderRadius: '2px',
-            transition: 'all .2s ease-out',
-            textAlign: 'center',
-            color: '#ffffff',
-          }}
-        >
-          {row.value}
-        </div>
+      <div
+      style={{
+        width: `${row.value}%`,
+          height: '100%',
+          backgroundColor:
+        !row.value
+          ? '#dadada'
+          : row.value > 79
+          ? '#85cc00'
+          : row.value > 49
+          ? '#ffbf00'
+          : '#ff2e00',
+          borderRadius: '2px',
+          transition: 'all .2s ease-out',
+          textAlign: 'center',
+          color: '#ffffff',
+      }}
+      >
+      {row.value}
+      </div>
       </div>
     );
 
@@ -77,33 +77,32 @@ class Players extends Component {
       accessor: 'name',
       width: getColumnWidth(players, 'name', 'Name'),
       filterMethod: (filter, row) => row[filter.id].toLowerCase()
-        .includes(filter.value.toLowerCase()),
-    }, {
-      Header: 'Position',
-      accessor: 'position',
-      width: getColumnWidth(players, 'position', 'Position'),
-      filterMethod: (filter, row) => row[filter.id].includes(filter.value.toUpperCase()),
+      .includes(filter.value.toLowerCase()),
     }, {
       Header: 'Overall',
       accessor: 'overall',
       Cell: cell,
+    }, {
+      Header: 'Position',
+      accessor: 'position',
+      Cell: cell,
     }];
 
-    for (let i = 2019; i > 1998; i -= 1) {
+    for (let i = 2021; i >= 1954; i -= 1) {
       columns.push({
         Header: i.toString(),
-        accessor: `years.${i.toString()}.score`,
+        accessor: `scores.${i.toString()}`,
         Cell: cell,
       });
     }
 
     return (
       <ReactTable
-        className="container-fluid h-100-header"
-        data={players}
-        columns={columns}
-        defaultSortDesc
-        filterable
+      className="container-fluid h-100-header"
+      data={players}
+      columns={columns}
+      defaultSortDesc
+      filterable
       />
     );
   }
